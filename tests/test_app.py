@@ -1,3 +1,9 @@
+import sys
+import os
+
+# Add project root to path so 'app' module can be found
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 import pytest
 from app import app
 
