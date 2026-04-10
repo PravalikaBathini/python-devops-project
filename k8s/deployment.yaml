@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-devops-app
+  labels:
+    app: python-devops-app
+spec:
+  replicas: 2                          # Run 2 pod instances for availability
+  selector:
+    matchLabels:
+      app: python-devops-app
+  template:
+    metadata:
+      labels:
+        app: python-devops-app
+    spec:
+      containers:
+      - name: python-devops-app
+        image: pravalikabathini/python-devops-app:latest
+        ports:
+        - containerPort: 5000
+        readinessProbe:                # Kubernetes checks this before routing traffic
+          httpGet:
+            path: /health
+            port: 5000
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:                 # Kubernetes restarts the pod if this fails
+          httpGet:
+            path: /health
+            port: 5000
+          initialDelaySeconds: 15
+          periodSeconds: 20
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "50m"
+          limits:
+            memory: "128Mi"
+            cpu: "100m"
