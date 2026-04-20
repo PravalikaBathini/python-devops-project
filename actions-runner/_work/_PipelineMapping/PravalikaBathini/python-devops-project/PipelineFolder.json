@@ -1,0 +1,12 @@
+﻿{
+  "repositoryName": "PravalikaBathini/python-devops-project",
+  "pipelineDirectory": "python-devops-project",
+  "workspaceDirectory": "python-devops-project\\python-devops-project",
+  "repositories": {
+    "PravalikaBathini/python-devops-project": {
+      "repositoryPath": "python-devops-project\\python-devops-project",
+      "lastRunOn": "04/10/2026 15:44:11 +05:30"
+    }
+  },
+  "lastRunOn": "04/20/2026 11:06:44 +05:30"
+}

@@ -88,3 +88,8 @@ jobs:
 
       - name: Show service URL
         run: minikube service python-service --url
+
+      - name: Show service URL
+        run: |
+          kubectl get svc python-service
+          echo "Access your app at: http://$(minikube ip):30080"
